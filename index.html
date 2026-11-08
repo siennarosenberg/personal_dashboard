@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="winter">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+
+  <main class="page">
+    <header class="top">
+      <div>
+        <p class="date" id="date"></p>
+        <h1 id="greeting">Good morning</h1>
+      </div>
+      <div class="top-right">
+        <div class="weather" id="weather" aria-live="polite">Loading weather…</div>
+        <button class="pill-btn" id="theme-btn" type="button" title="Change season">❄ Winter</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <!-- LEFT: calendar + to-do -->
+      <div class="col col-left">
+        <section class="card" aria-labelledby="cal-title">
+          <div class="card-head">
+            <h2 id="cal-title"></h2>
+            <div class="nav">
+              <button type="button" class="icon-btn" id="cal-prev" aria-label="Previous month">‹</button>
+              <button type="button" class="icon-btn text" id="cal-today">Today</button>
+              <button type="button" class="icon-btn" id="cal-next" aria-label="Next month">›</button>
+            </div>
+          </div>
+          <div class="cal-grid" id="cal-grid"></div>
+
+          <h3 class="agenda-title" id="agenda-title"></h3>
+          <ul class="list" id="sched-list"></ul>
+          <form class="add" id="sched-form">
+            <input type="time" id="sched-time" aria-label="Time">
+            <input type="text" id="sched-text" placeholder="Add an event…" maxlength="120" aria-label="Event">
+            <button type="submit" aria-label="Add event">+</button>
+          </form>
+        </section>
+
+        <section class="card" aria-labelledby="todo-h">
+          <div class="card-head">
+            <h2 id="todo-h">To-do</h2>
+            <span class="muted" id="todo-count"></span>
+          </div>
+          <ul class="list" id="todo-list"></ul>
+          <form class="add" id="todo-form">
+            <input type="text" id="todo-text" placeholder="Add a task…" maxlength="120" aria-label="Task">
+            <button type="submit" aria-label="Add task">+</button>
+          </form>
+        </section>
+      </div>
+
+      <!-- MIDDLE: study, trip + focus timer, opportunities -->
+      <div class="col col-mid">
+        <section class="card" aria-labelledby="study-h">
+          <div class="card-head">
+            <h2 id="study-h">Study this week</h2>
+            <div class="nav">
+              <button type="button" class="icon-btn" id="week-prev" aria-label="Previous week">‹</button>
+              <span class="muted" id="week-label"></span>
+              <button type="button" class="icon-btn" id="week-next" aria-label="Next week">›</button>
+            </div>
+          </div>
+          <div id="study-list"></div>
+          <form class="add" id="course-form">
+            <input type="text" id="course-name" placeholder="Add a course…" maxlength="60" aria-label="Course name">
+            <input type="number" id="course-goal" value="6" min="0.5" max="40" step="0.5" class="goal-in" aria-label="Weekly goal in hours" title="Weekly goal (hours)">
+            <button type="submit" aria-label="Add course">+</button>
+          </form>
+        </section>
+
+        <div class="pair">
+          <section class="card" aria-labelledby="trip-h">
+            <div class="card-head">
+              <h2 id="trip-h">Next trip</h2>
+            </div>
+            <div id="trip-box"></div>
+            <form class="add wrap" id="trip-form">
+              <input type="text" id="trip-name" placeholder="Where to?" maxlength="60" aria-label="Destination">
+              <input type="date" id="trip-date" aria-label="Trip date">
+              <button type="submit" aria-label="Add trip">+</button>
+            </form>
+          </section>
+
+          <section class="card" aria-labelledby="timer-h">
+            <div class="card-head">
+              <h2 id="timer-h">Focus</h2>
+              <select id="timer-preset" class="mini-select" aria-label="Timer length"></select>
+            </div>
+            <div class="timer-face" id="timer-face">
+              <div class="timer-mode" id="timer-mode">Focus</div>
+              <div id="timer-time">25:00</div>
+            </div>
+            <div class="timer-btns">
+              <button type="button" class="btn solid" id="timer-start">Start</button>
+              <button type="button" class="btn" id="timer-reset">Reset</button>
+              <button type="button" class="btn" id="timer-skip">Skip</button>
+            </div>
+            <label class="log-to">Log time to
+              <select id="timer-course" class="mini-select"></select>
+            </label>
+            <p class="muted timer-sessions" id="timer-sessions"></p>
+          </section>
+        </div>
+
+        <section class="card" aria-labelledby="opp-h">
+          <div class="card-head">
+            <h2 id="opp-h">Internships &amp; scholarships</h2>
+            <span class="muted" id="opp-count"></span>
+          </div>
+          <ul class="list opps" id="opp-list"></ul>
+          <form class="add wrap" id="opp-form">
+            <input type="text" id="opp-name" placeholder="Program name…" maxlength="100" aria-label="Program name">
+            <input type="date" id="opp-date" aria-label="Deadline">
+            <input type="text" id="opp-link" placeholder="Link (optional)" maxlength="300" aria-label="Link">
+            <button type="submit" aria-label="Add program">+</button>
+          </form>
+        </section>
+      </div>
+
+      <!-- RIGHT: headlines + security log -->
+      <div class="col col-right">
+        <section class="card" aria-labelledby="news-h">
+          <div class="card-head">
+            <h2 id="news-h">Headlines</h2>
+            <span class="muted" id="news-updated"></span>
+          </div>
+          <div id="news-list"></div>
+        </section>
+
+        <section class="card" aria-labelledby="sec-h">
+          <div class="card-head">
+            <h2 id="sec-h">Security log</h2>
+            <span class="muted" id="sec-count"></span>
+          </div>
+          <ul class="list" id="sec-list"></ul>
+          <form class="add wrap" id="sec-form">
+            <input type="text" id="sec-title" placeholder="Room, CTF or topic…" maxlength="100" aria-label="What you worked on">
+            <input type="text" id="sec-note" placeholder="What clicked?" maxlength="200" aria-label="What you learned">
+            <button type="submit" aria-label="Add log entry">+</button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="news.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

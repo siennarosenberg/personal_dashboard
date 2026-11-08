@@ -49,6 +49,7 @@ jobs:
           cp index.html style.css app.js news.js _site/
           cp -n *.jpg *.jpeg *.png *.webp _site/ 2>/dev/null || true
           touch _site/.nojekyll
+          cp -r images _site/
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v4

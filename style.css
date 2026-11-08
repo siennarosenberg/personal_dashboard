@@ -4,7 +4,7 @@
 }
 
 :root[data-theme="winter"] {
-  --background-image: url("winter_bg.jpg");
+  --background-image: url("images/winter_bg.jpg");
   --bg-a: #dfe9f3;
   --bg-b: #f4f7fa;
   --ink: #26323f;
@@ -15,7 +15,7 @@
   --line: rgba(111, 155, 196, 0.25);
 }
 :root[data-theme="spring"] {
-  --background-image: url("spring_bg.jpg");
+  --background-image: url("images/spring_bg.jpg");
   --bg-a: #e6efe3;
   --bg-b: #f7f8f3;
   --ink: #2b3a2f;
@@ -26,7 +26,7 @@
   --line: rgba(134, 171, 139, 0.28);
 }
 :root[data-theme="summer"] {
-  --background-image: url("summer_bg.jpg");
+  --background-image: url("images/summer_bg.jpg");
   --bg-a: #f6ead5;
   --bg-b: #fbf6ec;
   --ink: #3a3226;
@@ -37,7 +37,7 @@
   --line: rgba(215, 154, 98, 0.28);
 }
 :root[data-theme="autumn"] {
-  --background-image: url("autumn_bg.jpg");
+  --background-image: url("images/autumn_bg.jpg");
   --bg-a: #eadfd6;
   --bg-b: #f7f2ed;
   --ink: #3a2d27;

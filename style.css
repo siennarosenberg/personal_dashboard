@@ -1,8 +1,10 @@
-/* ---------- Seasonal themes: change colors here ---------- */
 :root {
   --good: #6fae8f;
+  --background-image: url("background.jpg");
 }
+
 :root[data-theme="winter"] {
+  --background-image: url("winter_bg.jpg");
   --bg-a: #dfe9f3;
   --bg-b: #f4f7fa;
   --ink: #26323f;
@@ -13,6 +15,7 @@
   --line: rgba(111, 155, 196, 0.25);
 }
 :root[data-theme="spring"] {
+  --background-image: url("spring_bg.jpg");
   --bg-a: #e6efe3;
   --bg-b: #f7f8f3;
   --ink: #2b3a2f;
@@ -23,6 +26,7 @@
   --line: rgba(134, 171, 139, 0.28);
 }
 :root[data-theme="summer"] {
+  --background-image: url("summer_bg.jpg");
   --bg-a: #f6ead5;
   --bg-b: #fbf6ec;
   --ink: #3a3226;
@@ -33,6 +37,7 @@
   --line: rgba(215, 154, 98, 0.28);
 }
 :root[data-theme="autumn"] {
+  --background-image: url("autumn_bg.jpg");
   --bg-a: #eadfd6;
   --bg-b: #f7f2ed;
   --ink: #3a2d27;
@@ -57,12 +62,13 @@ body {
 
 /* Background: drop a photo named background.jpg next to index.html and it
    shows up automatically. Without one, you get the soft gradient. */
+
 .backdrop {
   position: fixed;
   inset: 0;
   z-index: -1;
   background:
-    url("background.jpg") center / cover no-repeat,
+var(--background-image) center / cover no-repeat,
     radial-gradient(ellipse at 20% 0%, var(--accent-soft), transparent 60%),
     linear-gradient(180deg, var(--bg-a), var(--bg-b));
 }
